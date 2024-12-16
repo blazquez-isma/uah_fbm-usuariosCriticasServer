@@ -97,4 +97,15 @@ public class Critica {
         return getClass().hashCode();
     }
 
+    @Override
+    public String toString() {
+        return "Critica{" +
+                "idCritica=" + idCritica +
+                ", idUsuario=" + usuario.getIdUsuario() +
+                ", idPelicula=" + idPelicula +
+                ", valoracion='" + valoracion + '\'' +
+                ", nota=" + nota +
+                ", fecha=" + fecha +
+                '}';
+    }
 }

@@ -18,7 +18,7 @@ public class UsuarioController {
         return usuarioService.buscarTodos();
     }
 
-    @GetMapping("/usuarios/{idUsuario}")
+    @GetMapping("/usuarios/{id}")
     public Usuario buscarUsuarioPorId(@PathVariable("id") Integer idUsuario) {
         return usuarioService.buscarUsuarioPorId(idUsuario);
     }
@@ -35,6 +35,11 @@ public class UsuarioController {
 
     @PostMapping("/usuarios")
     public void guardarUsuario(@RequestBody Usuario usuario) {
+        System.out.println("Usuario a guardar: " + usuario);
+        if(usuario!=null && usuario.getIdUsuario() < 1) {
+            usuario.setIdUsuario(null);
+        }
+        System.out.println("Usuario actualizado: " + usuario);
         usuarioService.guardarUsuario(usuario);
     }
 
@@ -43,7 +48,7 @@ public class UsuarioController {
         usuarioService.actualizarUsuario(usuario);
     }
 
-    @DeleteMapping("/usuarios/{idUsuario}")
+    @DeleteMapping("/usuarios/{id}")
     public void eliminarUsuario(@PathVariable("id") Integer idUsuario) {
         usuarioService.eliminarUsuario(idUsuario);
     }

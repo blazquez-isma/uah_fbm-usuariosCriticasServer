@@ -5,6 +5,7 @@ import es.uah.ismael.fbm.usuariosCriticasServer.dao.repository.ICriticaRepositor
 import es.uah.ismael.fbm.usuariosCriticasServer.dao.repository.IUsuarioRepository;
 import es.uah.ismael.fbm.usuariosCriticasServer.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,41 +21,42 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
     @Override
     public List<Usuario> buscarTodos() {
-        return null;
+        //findAll order by Usuario.nombre
+        return usuarioRepository.findAll(Sort.by(Sort.Direction.ASC, "nombre"));
     }
 
     @Override
     public Usuario buscarUsuarioPorId(Integer idUsuario) {
-        return null;
+        return usuarioRepository.findById(idUsuario).orElse(null);
     }
 
     @Override
     public Usuario buscarUsuarioPorNombre(String nombre) {
-        return null;
+        return usuarioRepository.findByNombre(nombre);
     }
 
     @Override
     public Usuario buscarUsuarioPorCorreo(String correo) {
-        return null;
+        return usuarioRepository.findByCorreo(correo);
     }
 
     @Override
     public void guardarUsuario(Usuario usuario) {
-
+        usuarioRepository.save(usuario);
     }
 
     @Override
     public void eliminarUsuario(Integer idUsuario) {
-
+        usuarioRepository.deleteById(idUsuario);
     }
 
     @Override
     public void actualizarUsuario(Usuario usuario) {
-
+        usuarioRepository.save(usuario);
     }
 
     @Override
     public void eliminarCritica(Integer idUsuario, Integer idCritica) {
-
+        criticaRepository.deleteByIdCriticaAndUsuarioIdUsuario(idCritica, idUsuario);
     }
 }

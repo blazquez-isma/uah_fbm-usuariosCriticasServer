@@ -18,7 +18,7 @@ public class CriticaController {
         return criticaService.buscarTodas();
     }
 
-    @GetMapping("/criticas/{idCritica}")
+    @GetMapping("/criticas/{id}")
     public Critica buscarCriticaPorId(@PathVariable("id") Integer idCritica) {
         return criticaService.buscarCriticaPorId(idCritica);
     }

@@ -18,7 +18,7 @@ public class RolController {
         return rolService.buscarTodos();
     }
 
-    @GetMapping("/roles/{idRol}")
+    @GetMapping("/roles/{id}")
     public Rol buscarRolPorId(@PathVariable("id") Integer idRol) {
         return rolService.buscarRolPorId(idRol);
     }
@@ -28,8 +28,8 @@ public class RolController {
         rolService.guardarRol(rol);
     }
 
-    @DeleteMapping("/roles/{idRol}")
-    public void eliminarRol(@PathVariable("idRol") Integer idRol) {
+    @DeleteMapping("/roles/{id}")
+    public void eliminarRol(@PathVariable("id") Integer idRol) {
         rolService.eliminarRol(idRol);
     }
 

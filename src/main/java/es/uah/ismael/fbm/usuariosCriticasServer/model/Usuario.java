@@ -28,7 +28,7 @@ public class Usuario {
     @Column(name = "enable", nullable = false)
     private Boolean enable = false;
 
-    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.ALL})
     private List<Critica> criticas;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -39,7 +39,7 @@ public class Usuario {
             inverseJoinColumns = {
                 @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     })
-    private List<Rol> authorities;
+    private List<Rol> roles;
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -89,12 +89,12 @@ public class Usuario {
         this.criticas = criticas;
     }
 
-    public List<Rol> getAuthorities() {
-        return authorities;
+    public List<Rol> getRoles() {
+        return roles;
     }
 
-    public void setAuthorities(List<Rol> authorities) {
-        this.authorities = authorities;
+    public void setRoles(List<Rol> authorities) {
+        this.roles = authorities;
     }
 
     @Override
@@ -108,5 +108,17 @@ public class Usuario {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "idUsuario=" + idUsuario +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", enable=" + enable +
+                ", roles=" + roles +
+                ", criticas=" + criticas +
+                '}';
     }
 }

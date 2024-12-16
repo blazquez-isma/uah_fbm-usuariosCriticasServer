@@ -12,4 +12,5 @@ public interface ICriticaRepository extends JpaRepository<Critica, Integer> {
 
     List<Critica> findByIdPelicula(Integer idPelicula);
 
+    void deleteByIdCriticaAndUsuarioIdUsuario(Integer idCritica, Integer idUsuario);
 }
