@@ -42,6 +42,11 @@ public class CriticaDAOImpl implements ICriticaDAO {
     }
 
     @Override
+    public void actualizarCritica(Critica critica) {
+        criticaRepository.save(critica);
+    }
+
+    @Override
     public void eliminarCritica(Integer idCritica) {
         criticaRepository.deleteById(idCritica);
     }

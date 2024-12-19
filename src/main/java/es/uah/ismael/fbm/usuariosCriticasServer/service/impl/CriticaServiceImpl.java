@@ -40,6 +40,11 @@ public class CriticaServiceImpl implements ICriticaService {
     }
 
     @Override
+    public void actualizarCritica(Critica critica) {
+        criticaDAO.actualizarCritica(critica);
+    }
+
+    @Override
     public void eliminarCritica(Integer idCritica) {
         criticaDAO.eliminarCritica(idCritica);
     }

@@ -20,7 +20,7 @@ public class Critica {
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario", nullable = false)
-    @JsonIgnoreProperties("matriculas")
+    @JsonIgnoreProperties("criticas")
     private Usuario usuario;
 
     @Column(name = "idPelicula", nullable = false)

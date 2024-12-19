@@ -35,7 +35,15 @@ public class CriticaController {
 
     @PostMapping("/criticas")
     public void guardarCritica(@RequestBody Critica critica) {
+        if(critica!=null && critica.getIdCritica() < 1) {
+            critica.setIdCritica(null);
+        }
         criticaService.guardarCritica(critica);
+    }
+
+    @PutMapping("/criticas")
+    public void actualizarCritica(@RequestBody Critica critica) {
+        criticaService.actualizarCritica(critica);
     }
 
     @DeleteMapping("/criticas/{idCritica}")

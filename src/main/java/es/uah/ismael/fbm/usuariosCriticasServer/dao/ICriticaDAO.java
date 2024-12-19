@@ -16,6 +16,8 @@ public interface ICriticaDAO {
 
     void guardarCritica(Critica critica);
 
+    void actualizarCritica(Critica critica);
+
     void eliminarCritica(Integer idCritica);
 
 }

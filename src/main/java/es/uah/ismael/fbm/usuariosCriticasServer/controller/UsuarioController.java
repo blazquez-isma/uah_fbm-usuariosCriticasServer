@@ -35,11 +35,9 @@ public class UsuarioController {
 
     @PostMapping("/usuarios")
     public void guardarUsuario(@RequestBody Usuario usuario) {
-        System.out.println("Usuario a guardar: " + usuario);
         if(usuario!=null && usuario.getIdUsuario() < 1) {
             usuario.setIdUsuario(null);
         }
-        System.out.println("Usuario actualizado: " + usuario);
         usuarioService.guardarUsuario(usuario);
     }
 
