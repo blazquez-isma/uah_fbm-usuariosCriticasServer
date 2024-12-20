@@ -19,4 +19,6 @@ public interface ICriticaService {
     void actualizarCritica(Critica critica);
 
     void eliminarCritica(Integer idCritica);
+
+    Double calcularNotaMediaDePelicula(Integer idPelicula);
 }

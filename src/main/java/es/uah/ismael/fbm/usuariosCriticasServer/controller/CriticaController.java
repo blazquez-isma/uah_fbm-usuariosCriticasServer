@@ -33,6 +33,11 @@ public class CriticaController {
         return criticaService.buscarCriticasPorIdPelicula(idPelicula);
     }
 
+    @GetMapping("/criticas/pelicula/{idPelicula}/NotaMedia")
+    public Double buscarMediaCriticasPorPelicula(@PathVariable("idPelicula") Integer idPelicula) {
+        return criticaService.calcularNotaMediaDePelicula(idPelicula);
+    }
+
     @PostMapping("/criticas")
     public void guardarCritica(@RequestBody Critica critica) {
         if(critica!=null && critica.getIdCritica() < 1) {

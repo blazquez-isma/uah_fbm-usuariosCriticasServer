@@ -48,4 +48,9 @@ public class CriticaServiceImpl implements ICriticaService {
     public void eliminarCritica(Integer idCritica) {
         criticaDAO.eliminarCritica(idCritica);
     }
+
+    @Override
+    public java.lang.Double calcularNotaMediaDePelicula(Integer idPelicula) {
+        return criticaDAO.calcularNotaMediaDePelicula(idPelicula);
+    }
 }

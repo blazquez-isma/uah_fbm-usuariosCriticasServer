@@ -20,4 +20,5 @@ public interface ICriticaDAO {
 
     void eliminarCritica(Integer idCritica);
 
+    Double calcularNotaMediaDePelicula(Integer idPelicula);
 }

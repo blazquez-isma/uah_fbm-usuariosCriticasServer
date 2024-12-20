@@ -51,4 +51,9 @@ public class CriticaDAOImpl implements ICriticaDAO {
         criticaRepository.deleteById(idCritica);
     }
 
+    @Override
+    public Double calcularNotaMediaDePelicula(Integer idPelicula) {
+        return criticaRepository.calcularNotaMediaDePelicula(idPelicula);
+    }
+
 }
