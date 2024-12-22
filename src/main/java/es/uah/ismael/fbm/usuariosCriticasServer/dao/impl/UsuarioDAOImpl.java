@@ -41,6 +41,16 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
     }
 
     @Override
+    public Usuario buscarUsuarioPorNombreYClave(String nombre, String clave) {
+        return usuarioRepository.findByNombreAndClave(nombre, clave);
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorCorreoYClave(String correo, String clave) {
+        return usuarioRepository.findByCorreoAndClave(correo, clave);
+    }
+
+    @Override
     public void guardarUsuario(Usuario usuario) {
         usuarioRepository.save(usuario);
     }

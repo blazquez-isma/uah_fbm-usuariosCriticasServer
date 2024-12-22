@@ -35,6 +35,16 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
+    public Usuario buscarUsuarioPorNombreYClave(String nombre, String clave) {
+        return usuarioDAO.buscarUsuarioPorNombreYClave(nombre, clave);
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorCorreoYClave(String correo, String clave) {
+        return usuarioDAO.buscarUsuarioPorCorreoYClave(correo, clave);
+    }
+
+    @Override
     public void guardarUsuario(Usuario usuario) {
         usuarioDAO.guardarUsuario(usuario);
     }

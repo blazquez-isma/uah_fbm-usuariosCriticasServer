@@ -33,6 +33,16 @@ public class UsuarioController {
         return usuarioService.buscarUsuarioPorCorreo(correo);
     }
 
+    @GetMapping("/usuarios/login/nombre/{nombre}/{clave}")
+    public Usuario buscarUsuarioPorNombreYClave(@PathVariable("nombre") String nombre, @PathVariable("clave") String clave) {
+        return usuarioService.buscarUsuarioPorNombreYClave(nombre, clave);
+    }
+
+    @GetMapping("/usuarios/login/correo/{correo}/{clave}")
+    public Usuario buscarUsuarioPorCorreoYClave(@PathVariable("correo") String correo, @PathVariable("clave") String clave) {
+        return usuarioService.buscarUsuarioPorCorreoYClave(correo, clave);
+    }
+
     @PostMapping("/usuarios")
     public void guardarUsuario(@RequestBody Usuario usuario) {
         if(usuario!=null && usuario.getIdUsuario() < 1) {
