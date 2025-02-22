@@ -32,7 +32,7 @@ public class Usuario {
     private List<Critica> criticas;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "Users_has_Authorities",
+    @JoinTable(name = "users_has_authorities",
             joinColumns = {
                 @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
             },

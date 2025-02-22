@@ -51,6 +51,10 @@ public class CriticaServiceImpl implements ICriticaService {
 
     @Override
     public Double calcularNotaMediaDePelicula(Integer idPelicula) {
-        return Math.round(criticaDAO.calcularNotaMediaDePelicula(idPelicula) * 100.0) / 100.0;
+        Double notaMedia = criticaDAO.calcularNotaMediaDePelicula(idPelicula);
+        if (notaMedia == null) {
+            return 0.0;
+        }
+        return Math.round(notaMedia * 100.0) / 100.0;
     }
 }
